@@ -1,0 +1,27 @@
+name: Trigger RPM Release Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version Number of release to be created (e.g. 1.2.3)
+        type: string
+        default: ''
+        required: true
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show
+          ./run.sh "${{ github.event.inputs.version }}"

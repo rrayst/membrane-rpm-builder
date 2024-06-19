@@ -1,0 +1,98 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "germanywestcentral"
+        },
+        "networkInterfaceName1": {
+            "value": "rhel-test-2024061802199_z1"
+        },
+        "networkSecurityGroupName": {
+            "value": "rhel-test-2024061802-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/2a5e9a0c-6d1d-49f6-8b2a-96647a511370/resourceGroups/demo/providers/Microsoft.Network/virtualNetworks/gitlabdemo-vnet"
+        },
+        "publicIpAddressName1": {
+            "value": "rhel-test-2024061802-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "pipDeleteOption": {
+            "value": "Detach"
+        },
+        "virtualMachineName": {
+            "value": "rhel-test-2024061802"
+        },
+        "virtualMachineName1": {
+            "value": "rhel-test-2024061802"
+        },
+        "virtualMachineComputerName1": {
+            "value": "rhel-test-2024061802"
+        },
+        "virtualMachineRG": {
+            "value": "demo"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Detach"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B2s"
+        },
+        "nicDeleteOption": {
+            "value": "Detach"
+        },
+        "hibernationEnabled": {
+            "value": false
+        },
+        "adminUsername": {
+            "value": "predic8"
+        },
+        "adminPublicKey": {
+            "value": "$SSH_PUB_KEY"
+        },
+        "customData": {
+            "value": "$CUSTOM_DATA"
+        },
+        "securityType": {
+            "value": "TrustedLaunch"
+        },
+        "secureBoot": {
+            "value": true
+        },
+        "vTPM": {
+            "value": true
+        },
+        "virtualMachine1Zone": {
+            "value": "1"
+        }
+    }
+}
