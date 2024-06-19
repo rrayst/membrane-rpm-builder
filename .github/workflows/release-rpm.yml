@@ -9,7 +9,7 @@ on:
         default: ''
         required: true
 jobs:
-  create-pr:
+  trigger-rpm-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -24,4 +24,5 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az account show
+          apt-get update && apt-get install -y gettext
           ./run.sh "${{ github.event.inputs.version }}"
