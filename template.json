@@ -215,11 +215,9 @@
 				"userData": "[parameters('userData')]"
             },
             "identity": {
-                "type": "SystemAssigned, UserAssigned",
+                "type": "UserAssigned",
                 "userAssignedIdentities": {
                     "/subscriptions/2a5e9a0c-6d1d-49f6-8b2a-96647a511370/resourceGroups/demo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/rpm-builder": {
-                        "principalId": "e52c1313-1ffb-4a96-b445-12941229661e",
-                        "clientId": "c5fe6c74-38b3-42dd-bfc9-c0daeb8cc2bf"
                     }
                 }
             },
