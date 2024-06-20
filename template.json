@@ -208,8 +208,8 @@
                     "bootDiagnostics": {
                         "enabled": true
                     }
-                }
-				"userData": "[parameters('userData')]",
+                },
+				"userData": "[parameters('userData')]"
             },
             "identity": {
                 "type": "systemAssigned"
