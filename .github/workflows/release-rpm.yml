@@ -24,5 +24,4 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az account show
-          apt-get update && apt-get install -y gettext
-          ./run.sh "${{ github.event.inputs.version }}"
+          ./run.sh "${{ github.event.inputs.version }}" "${{ secrets.SSH_PUB_KEY }}"

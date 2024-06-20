@@ -209,6 +209,7 @@
                         "enabled": true
                     }
                 }
+				"userData": "[parameters('userData')]",
             },
             "identity": {
                 "type": "systemAssigned"

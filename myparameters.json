@@ -82,6 +82,9 @@
         "customData": {
             "value": $CUSTOM_DATA
         },
+        "userData": {
+            "value": $USER_DATA
+        },
         "securityType": {
             "value": "TrustedLaunch"
         },
