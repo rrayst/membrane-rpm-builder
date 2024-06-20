@@ -77,10 +77,10 @@
             "value": "predic8"
         },
         "adminPublicKey": {
-            "value": "$SSH_PUB_KEY"
+            "value": $SSH_PUB_KEY
         },
         "customData": {
-            "value": "$CUSTOM_DATA"
+            "value": $CUSTOM_DATA
         },
         "securityType": {
             "value": "TrustedLaunch"

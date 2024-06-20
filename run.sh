@@ -4,9 +4,7 @@ jq --help
 
 az --help
 
-export DATA=$(cat background.sh)
-cat starter.sh | envsubst | base64 | sed 's/\n//g' > starter2.sh
-
+jq -Rs --arg SSH_PUB_KEY Tob --arg "$(cat starter-complete.sh)" cust "$(cat myparameters.json)" </dev/null
 
 
 exit 0
