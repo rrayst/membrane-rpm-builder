@@ -14,9 +14,9 @@ jq -Rs \
 --arg CUSTOM_DATA "$(cat starter-complete.sh)" \
 --arg USER_DATA "$(echo $VERSION | base64)" \
 "$(cat myparameters.json)" \
-</dev/null
+>myparameters2.json </dev/null
 
-az deployment group create --name addnameparameter --resource-group demo --template-file .\template.json --parameters "@myparameters.json" > data.json
+az deployment group create --name addnameparameter --resource-group demo --template-file template.json --parameters "@myparameters2.json" > data.json
 
 
 MANAGED_ID=$(cat data.json | jq -r .identity.principalId)
