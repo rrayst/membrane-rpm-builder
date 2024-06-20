@@ -96,6 +96,24 @@
         },
         "virtualMachine1Zone": {
             "value": "1"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "20:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "W. Europe Standard Time"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        },
+        "autoShutdownNotificationEmail": {
+            "value": "polley@predic8.de"
         }
     }
 }
