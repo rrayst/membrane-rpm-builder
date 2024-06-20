@@ -1,0 +1,24 @@
+name: Cleanup after RPM Release Build
+
+on:
+  workflow_dispatch: {}
+jobs:
+  cleanup-after-rpm-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az vm delete -y --resource-group demo --name rhel-test-2024061802 --force-deletion none
+          az network nic delete --resource-group demo --name rhel-test-2024061802199_z1
+          az network public-ip delete --resource-group demo --name rhel-test-2024061802-ip
+          DISK=$(az disk list --query "[?starts_with(id,'/subscriptions/2a5e9a0c-6d1d-49f6-8b2a-96647a511370/resourceGroups/DEMO/providers/Microsoft.Compute/disks/rhel-test-2024061802') ].name" --output tsv)
+          az disk delete --resource-group demo --name $DISK -y
