@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -xe
+
 VERSION="$1"
 
 if [ "$VERSION" = "" ] ; then
@@ -17,7 +19,7 @@ while true ; do
 done
 
 echo "$SEC" > pem
-sed -i -E 's/- /-\n/g' pem
+sed -i -E 's/-  /-\n/g' pem
 sed -i -E 's/ -/\n-/g' pem
 sed -i -E 's/ =/\n=/g' pem
 
@@ -26,7 +28,9 @@ sed -i -E 's/- /-\n/g' public
 sed -i -E 's/ -/\n-/g' public
 sed -i -E 's/ =/\n=/g' public
 
+set +e
 gpg --import public
+set -e
 
 GITTOKEN=$(curl -H "Authorization: Bearer $TOKEN" "https://rpm-builder.vault.azure.net/secrets/gittoken/?api-version=7.4"  | jq -r .value)
 GITUSER=$(curl -H "Authorization: Bearer $TOKEN" "https://rpm-builder.vault.azure.net/secrets/gituser/?api-version=7.4"  | jq -r .value)
@@ -38,7 +42,9 @@ mkdir -p /root/rpmbuild/SRPMS
 rpmbuild -bs membrane.spec
 rpmbuild --rebuild /root/rpmbuild/SRPMS/membrane-*.el8.src.rpm
 
+set +e
 gpg --import pem
+set -e
 
 export KEY=$(gpg --list-secret-keys | grep -A1 '^sec' | awk '/[0-9A-Fa-f]{16}/{print $1}')
 echo "%_signature gpg

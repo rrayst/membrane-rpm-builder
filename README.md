@@ -9,3 +9,8 @@ Go to Settings > Secrets and Variables > Actions.
 Choose New repository secret, enter name `AZURE_CREDENTIALS` and paste the value of the `az` command as value.
 
 Create another repository secret: name `SSH_PUB_KEY` and enter a line for the authorized_keys file as value.
+
+
+# TODO
+* background.sh is not executable
+* (maybe fixed) background.sh contains windows line breaks when deployed
