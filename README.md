@@ -13,4 +13,4 @@ Create another repository secret: name `SSH_PUB_KEY` and enter a line for the au
 
 # TODO
 * background.sh is not executable
-* (maybe fixed) background.sh contains windows line breaks when deployed
+* `starter.sh` uses `$VERSION`, but the variable is not set (=empty)
