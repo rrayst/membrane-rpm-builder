@@ -52,9 +52,9 @@ echo "%_signature gpg
 rpm --addsign ./rpmbuild/RPMS/x86_64/membrane-*.x86_64.rpm
 cd /root/membrane.github.io
 git pull
-cp -n /root/rpmbuild/RPMS/x86_64/membrane-*.x86_64.rpm /root/membrane.github.io/rpm/el8/packages
-createrepo  /root/membrane.github.io/rpm/el8/packages
-gpg --yes --detach-sign --armor /root/membrane.github.io/rpm/el8/packages/repodata/repomd.xml
+cp -n /root/rpmbuild/RPMS/x86_64/membrane-*.x86_64.rpm /root/membrane.github.io/rpm/unstable/el8/packages
+createrepo  /root/membrane.github.io/rpm/unstable/el8/packages
+gpg --yes --detach-sign --armor /root/membrane.github.io/rpm/unstable/el8/packages/repodata/repomd.xml
 git add .
 
 cat >>.git/config <<'EOF'
