@@ -12,4 +12,6 @@ cat >background.sh <<'EOF2'
 $DATA
 EOF2
 
+chmod +x background.sh
+
 nohup /bin/bash -c './background.sh "$VERSION"' >log.txt 2>&1 &
