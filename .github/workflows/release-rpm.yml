@@ -25,4 +25,6 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az account show
+          apt-get update
+          apt-get install jq
           ./run.sh "${{ github.event.inputs.version }}" "${{ secrets.SSH_PUB_KEY }}"
