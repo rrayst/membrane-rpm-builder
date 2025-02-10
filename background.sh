@@ -1,5 +1,9 @@
 #!/bin/bash
 
+lvresize --extents +10245 /dev/rootvg/rootlv
+xfs_growfs /
+
+
 set -xe
 
 VERSION="$1"
