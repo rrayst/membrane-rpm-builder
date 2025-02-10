@@ -42,6 +42,9 @@ GITUSER=$(curl -H "Authorization: Bearer $TOKEN" "https://rpm-builder.vault.azur
 curl -L -o membrane.spec https://raw.githubusercontent.com/membrane/api-gateway/master/membrane.spec
 sed -i -E "s/(Version:\s+).*\$/\1$VERSION/" membrane.spec
 sed -i -E "s/wget https/wget -O 2FB0F3ED57EF0A8A9CE847C18A006E355B8A65F6.asc https/" membrane.spec
+if [[ "$VERSION" == 5* ]] ; then
+  sed -i -E "s/membrane.sh/service-proxy.sh/" membrane.spec
+fi
 mkdir -p /root/rpmbuild/SRPMS
 rpmbuild -bs membrane.spec
 rpmbuild --rebuild /root/rpmbuild/SRPMS/membrane-*.el8.src.rpm
